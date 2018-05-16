@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from django.db.models import CASCADE
 
 
@@ -17,3 +18,4 @@ class Message(models.Model):
 class Answer(models.Model):
     title = models.CharField(max_length=100)
     answer = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now)

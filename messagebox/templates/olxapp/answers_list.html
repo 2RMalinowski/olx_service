@@ -1,0 +1,9 @@
+{% block content %}
+{% for answer in answers %}
+<div>
+    <h4><p>{{ answer.title }}</p></h4>
+    <p>{{ answer.answer|linebreaksbr }}</p>
+    <p>craeted: {{ answer.created_at }}</p>
+</div>
+{% endfor %}
+{% endblock %}

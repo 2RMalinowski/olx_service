@@ -3,5 +3,14 @@ from olxapp.models import Conversation, Message, Answer
 
 admin.site.register(Conversation)
 admin.site.register(Message)
-admin.site.register(Answer)
+
+
+class AnswerAdmin(admin.ModelAdmin):
+    list_display = ('title', 'created_at')
+    list_filter = ('title',)
+    search_fields = ('title', 'answer')
+    date_hierarchy = 'created_at'
+
+
+admin.site.register(Answer, AnswerAdmin)
 
