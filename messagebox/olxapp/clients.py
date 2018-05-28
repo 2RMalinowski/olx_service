@@ -7,9 +7,9 @@ class OLXAPIClient:
     def __init__(self, client_id, client_secret, username, password):
         self.client_id = client_id
         self.client_secret = client_secret
-        self.username = username
         self.password = password
-    
+        self.username = username
+
     def get_conversations(self):
         response = requests.get(
             url=self.OLX_API_URL + '/account/me/conversations/all',
@@ -25,8 +25,14 @@ class OLXAPIClient:
         return response.json()['results']
 
     # TODO: do zaimplementowania wysyłanie wiadomości
-    # def send_message(self, conversation_id, message_content):
-    #     ...
+
+    def send_message(self, conversation_id, message_content):
+        response = requests.post(
+            url=self.OLX_API_URL + f'/conversations/{conversation_id}/messages',
+            headers={'Authorization': 'Bearer ' + self._get_access_token()},
+            json={'message': message_content}
+        )
+        return response.json()['results']
 
     def _get_access_token(self):
         response = requests.post(
@@ -41,4 +47,3 @@ class OLXAPIClient:
             }
         )
         return response.json()['access_token']
-

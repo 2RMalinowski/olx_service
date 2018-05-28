@@ -1,7 +1,5 @@
 import datetime
-
 from django.conf import settings
-
 from olxapp.clients import OLXAPIClient
 from olxapp.models import Conversation, Message
 

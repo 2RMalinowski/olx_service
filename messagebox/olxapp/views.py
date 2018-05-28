@@ -7,7 +7,7 @@ def conversations_list_view(request):
         if request.POST['action'] == 'send':
             pass
             # TODO: wysłać wiadomość
-            # 1. pobrać idki z request.POST.getlist('conversations')
+            request.POST.getlist('conversations')
             # 1. stworzyć OLXAPIClient
             # 2. wywołać olx_api_client.send_message
         elif request.POST['action'] == 'refresh':

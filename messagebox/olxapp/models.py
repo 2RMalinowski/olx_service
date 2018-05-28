@@ -1,6 +1,6 @@
 from django.db import models
-from django.utils import timezone
 from django.db.models import CASCADE
+from django.utils import timezone
 
 
 class Conversation(models.Model):
